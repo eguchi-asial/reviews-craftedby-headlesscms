@@ -11,11 +11,9 @@
 <script lang="ts">
 import { IContentDocument } from '@nuxt/content/types/content'
 import Vue from 'vue'
-import Header from '~/components/Header.vue'
 import { mapMutations } from 'vuex'
 
 export default Vue.extend({
-  components: { Header },
   name: 'Review',
   data() {
     return {
