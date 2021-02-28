@@ -16,6 +16,8 @@ mdやjsonを使って、フロントと切り離して管理されます。
 
 このレビューサイトがまさにHeadlessCMSで作られており、<a href="https://content.nuxtjs.org/ja" target="_blank">nuxt/content</a>を採用しています。
 
+また、今回採用したHeadlessCMSは肝心の記事もGitで管理されるため、記事のrollbackなども即座に簡単に行えます。
+
 ## 参考リンク
 
 <ul>

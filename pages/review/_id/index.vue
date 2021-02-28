@@ -1,6 +1,8 @@
 <template>
   <div>
-    <Header />
+    <Header>
+      <div class="left" slot="left"><nuxt-link to="/">戻る</nuxt-link></div>
+    </Header>
     <div class="container">
       <nuxt-content :document="content" />
     </div>

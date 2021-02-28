@@ -1,6 +1,8 @@
 <template>
-  <div>
-    {{ currentTitle }}
+  <div class="header">
+    <slot name="left" />
+    <div class="center">{{ currentTitle }}</div>
+    <slot name="right" />
   </div>
 </template>
 
@@ -16,3 +18,40 @@ export default Vue.extend({
 })
 
 </script>
+<style lang="scss" scoped>
+.header {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  height: auto;
+  border-bottom: 1px solid;
+  padding: 10px;
+  font-size: 14px;
+  color: #fff;
+  background: #27ae60;
+
+  .left {
+    position: absolute;
+    left: 0;
+    padding-left: 10px;
+
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+
+  .right {
+    position: absolute;
+    right: 0;
+    padding-left: 10px;
+  }
+
+  .center {
+    font-weight: bold;
+    font-size: 18px;
+  }
+}
+</style>
