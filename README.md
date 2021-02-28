@@ -1,5 +1,17 @@
 # yuchon-review
 
+## desc
+
+Nuxt GitベースHeadlessCMSを用いたレビューサイト
+
+- nuxt/content
+  - https://content.nuxtjs.org/ja
+
+## memo
+
+- node
+  - nodebrew: 14.15.1
+
 ## Build Setup
 
 ```bash
@@ -21,3 +33,9 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+
+## tips
+
+- mdのpathについて
+  - mdが配置してあるディレクトリ名とidで自動生成される
+    - 「reiew」/「mdのid名」

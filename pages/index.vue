@@ -2,64 +2,35 @@
   <div class="container">
     <div>
       <Logo />
-      <h1 class="title">yuchon-review</h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+      <h2>新着レビュー(10)</h2>
+      <ul>
+        <li v-for="(content, index) in latest10Contents" :key="index">
+          <nuxt-link :to="content.path">
+            <div>{{content.category}} {{ content.title }} {{ content.yyyymmdd }}</div>
+          </nuxt-link>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
 
 <script lang="ts">
+import { IContentDocument } from '@nuxt/content/types/content'
 import Vue from 'vue'
+import moment from 'moment'
 
-export default Vue.extend({})
+export default Vue.extend({
+  name: 'Home',
+  async asyncData ({ $content }) {
+    const latest10Contents: IContentDocument | IContentDocument[] = await $content('review')
+      .only(['id', 'category', 'title', 'description', 'yyyymmdd'])
+      .sortBy('createdBy', 'desc')
+      .limit(10)
+      .fetch()
+    return {
+      // TODO どうやって、この型情報を定義すればいい？
+      latest10Contents
+    }
+  }
+})
 </script>
-
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>
