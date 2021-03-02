@@ -22,6 +22,7 @@ $ npm install
 $ npm run dev
 
 # build for production and launch server
+## 参考) https://ja.nuxtjs.org/docs/2.x/get-started/commands/
 $ npm run build
 $ npm run start
 

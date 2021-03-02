@@ -27,7 +27,7 @@ export default Vue.extend({
   name: 'Home',
   async asyncData ({ $content }) {
     const latest10Contents: IContentDocument | IContentDocument[] = await $content('review')
-      .only(['id', 'category', 'title', 'description', 'yyyymmdd'])
+      .only(['id', 'category', 'title', 'description', 'yyyymmdd', 'path'])
       .sortBy('createdBy', 'desc')
       .limit(10)
       .fetch()
