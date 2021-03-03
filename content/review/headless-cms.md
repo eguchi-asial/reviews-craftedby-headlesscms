@@ -1,10 +1,12 @@
 ---
 id: 'headless-cms'
-category: 'TECH'
+category: ['TECH','Vue','Nuxt','nuxt/content','HeadlessCMS']
 title: 'HeadlessCMSを触ってみた'
 description: 'まさにこのレビューサイトがHeadlessCMSでできています。触ってみた感想と、CMSとの違いについて触れてます。'
 yyyymmdd: '2021-02-28'
 ---
+
+<tags :tags="['TECH','Vue','Nuxt','nuxt/content','HeadlessCMS']"></tags>
 
 HeadlessCMSを使って、趣味や技術について綴っていこうと思います。
 
@@ -18,9 +20,5 @@ mdやjsonを使って、フロントと切り離して管理されます。
 
 また、今回採用したHeadlessCMSは肝心の記事もGitで管理されるため、記事のrollbackなども即座に簡単に行えます。
 
-## 参考リンク
 
-<ul>
-<li><a href="https://content.nuxtjs.org/ja" target="_blank">nuxt/content</a></li>
-<li><a href="https://ja.nuxtjs.org/" target="_blank">NuxtJS</a></li>
-</ul>
+<references :links="['https://content.nuxtjs.org/ja', 'https://ja.nuxtjs.org/']"></references>

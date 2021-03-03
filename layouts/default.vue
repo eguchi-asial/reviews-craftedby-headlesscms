@@ -17,6 +17,10 @@ html {
   box-sizing: border-box;
 }
 
+body {
+  overflow: hidden;
+}
+
 *,
 *::before,
 *::after {

@@ -1,14 +1,14 @@
 <template>
-  <div>
+  <div class="container">
     <Header />
-    <div class="container">
+    <div>
       <div>
         <Logo />
         <h2>新着レビュー(10)</h2>
         <ul>
           <li v-for="(content, index) in latest10Contents" :key="index">
             <nuxt-link :to="content.path">
-              <div>{{ content.category}} {{ content.title }} {{ content.yyyymmdd }}</div>
+              <div>{{ content.title }} {{ content.yyyymmdd }}</div>
               <div>{{ content.description }}</div>
             </nuxt-link>
           </li>

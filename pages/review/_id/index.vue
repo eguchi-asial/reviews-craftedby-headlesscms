@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="container">
     <Header>
       <div class="left" slot="left"><nuxt-link to="/">戻る</nuxt-link></div>
     </Header>
-    <div class="container">
+    <div class="contents">
       <nuxt-content :document="content" />
     </div>
   </div>
@@ -34,3 +34,11 @@ export default Vue.extend({
   }
 })
 </script>
+<style lang="scss" scoped>
+.contents {
+  width: 100vw;
+  height: 100vh;
+  padding: 10px;
+  overflow: hidden;
+}
+</style>
