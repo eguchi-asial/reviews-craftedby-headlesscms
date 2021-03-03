@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <Header />
-    <div>
+    <div class="contents">
       <div>
         <Logo />
         <h2>新着レビュー({{ latest10Contents.length }})</h2>
@@ -41,3 +41,8 @@ export default Vue.extend({
   }
 })
 </script>
+<style lang="scss" scoped>
+.contents {
+  margin-top: 50px;
+}
+</style>

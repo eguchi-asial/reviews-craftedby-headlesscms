@@ -38,7 +38,7 @@ export default Vue.extend({
 .contents {
   width: 100vw;
   height: 100vh;
-  padding: 10px;
-  overflow: hidden;
+  padding: 50px 10px 10px 10px;
+  overflow: scroll;
 }
 </style>

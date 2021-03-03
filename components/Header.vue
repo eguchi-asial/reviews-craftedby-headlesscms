@@ -20,6 +20,10 @@ export default Vue.extend({
 </script>
 <style lang="scss" scoped>
 .header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 19999;
   width: 100vw;
   display: flex;
   align-items: center;
