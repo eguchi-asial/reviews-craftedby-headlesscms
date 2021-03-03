@@ -18,7 +18,30 @@ mdやjsonを使って、フロントと切り離して管理されます。
 
 このレビューサイトがまさにHeadlessCMSで作られており、<a href="https://content.nuxtjs.org/ja" target="_blank">nuxt/content</a>を採用しています。
 
+nuct/contentは開発者が運用する前提で設計されているようです。
 また、今回採用したHeadlessCMSは肝心の記事もGitで管理されるため、記事のrollbackなども即座に簡単に行えます。
 
+mdファイルの中にvueコンポーネントが書けるので、コンポーネントを組み上げながら記事を組み上げる運用ができます。
+これは中々新鮮な体験でした。
+
+```md SAMPLE
+---
+id: 'Outriders'
+category: ['GAME','STEAM','無料']
+title: 'Outriders体験版をやってみた'
+description: '2/26にスクエニさんからOutriders体験版がリリースされましたので、やってみた感想です。'
+yyyymmdd: '2021-02-28'
+---
+
+<tags :tags="['GAME','STEAM','無料']"></tags>
+
+Outriders体験版やってみました。面白いです。
+
+<references :links="['https://www.jp.square-enix.com/outriders/', 'https://www.jp.square-enix.com/outriders/demo/']"></references>
+
+```
+
+こんな感じで、mdの中にtagsやreferencesのようにvueコンポーネントを使って記事を組み立てることができます。
+記事で共通のパーツはcomponentにして再利用することで記事の書きっぷりが統一されます。
 
 <references :links="['https://content.nuxtjs.org/ja', 'https://ja.nuxtjs.org/']"></references>

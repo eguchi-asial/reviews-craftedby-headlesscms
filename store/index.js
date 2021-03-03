@@ -1,5 +1,5 @@
 export const state = () => ({
-  title: 'ホーム'
+  title: 'YUCHON REVIEW'
 })
 
 export const getters = {

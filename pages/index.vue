@@ -4,7 +4,7 @@
     <div>
       <div>
         <Logo />
-        <h2>新着レビュー(10)</h2>
+        <h2>新着レビュー({{ latest10Contents.length }})</h2>
         <ul>
           <li v-for="(content, index) in latest10Contents" :key="index">
             <nuxt-link :to="content.path">
@@ -34,7 +34,7 @@ export default Vue.extend({
     return { latest10Contents }
   },
   mounted () {
-    this.CHANGE_TITLE('ホーム')
+    this.CHANGE_TITLE('YUCHON REVIEW')
   },
   methods: {
     ...mapMutations(['CHANGE_TITLE'])
