@@ -1,7 +1,15 @@
 <template>
   <div class="header">
     <slot name="left" />
-    <div class="center">{{ currentTitle }}</div>
+    <div class="center">
+      <span class="logo-wrapper">
+        <img
+          class="logo"
+          :class="{ 'no-title': !hasTitle }"
+          src="/logo_header.png" />
+      </span>
+      {{ currentTitle }}
+    </div>
     <slot name="right" />
   </div>
 </template>
@@ -13,7 +21,10 @@ import { mapGetters } from 'vuex'
 export default Vue.extend({
   name: 'Header',
   computed: {
-    ...mapGetters(['currentTitle'])
+    ...mapGetters(['currentTitle']),
+    hasTitle () {
+      return this.currentTitle.length > 0
+    }
   }
 })
 
@@ -28,13 +39,13 @@ export default Vue.extend({
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 50px;
+  min-height: 60px;
   height: auto;
-  border-bottom: 1px solid;
+  border-bottom: 1px dashed;
   padding: 10px;
   font-size: 14px;
-  color: #fff;
-  background: #27ae60;
+  color: #000;
+  background: #fff;
 
   .left {
     position: absolute;
@@ -42,7 +53,7 @@ export default Vue.extend({
     padding-left: 10px;
 
     a {
-      color: #fff;
+      color: #000;
       text-decoration: none;
     }
   }
@@ -56,6 +67,21 @@ export default Vue.extend({
   .center {
     font-weight: bold;
     font-size: 18px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+
+    .logo-wrapper {
+      .logo {
+        width: 50px;
+        height: auto;
+        margin-right: 10px;
+
+        &.no-title {
+          width: 80px;
+        }
+      }
+    }
   }
 }
 </style>

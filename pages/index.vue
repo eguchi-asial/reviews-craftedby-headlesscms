@@ -2,16 +2,25 @@
   <div class="container">
     <Header />
     <div class="contents">
-      <div>
+      <div class="main">
         <Logo />
         <h2>新着レビュー({{ latest10Contents.length }})</h2>
-        <ul>
-          <li v-for="(content, index) in latest10Contents" :key="index">
+        <ul class="items">
+          <li
+            class="item"
+            v-for="(content, index) in latest10Contents" :key="index">
             <nuxt-link :to="content.path">
               <div>{{ content.title }} {{ content.yyyymmdd }}</div>
               <div>{{ content.description }}</div>
             </nuxt-link>
           </li>
+        </ul>
+      </div>
+      <div class="sub">
+        <h3>カテゴリー</h3>
+        <ul>
+          <li>aaa</li>
+          <li>bbb</li>
         </ul>
       </div>
     </div>
@@ -34,7 +43,7 @@ export default Vue.extend({
     return { latest10Contents }
   },
   mounted () {
-    this.CHANGE_TITLE('YUCHON REVIEW')
+    this.CHANGE_TITLE('')
   },
   methods: {
     ...mapMutations(['CHANGE_TITLE'])
@@ -43,6 +52,30 @@ export default Vue.extend({
 </script>
 <style lang="scss" scoped>
 .contents {
-  margin-top: 50px;
+  // HEADER高さ
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: auto 20%;
+  height: calc(100vh - 60px);
+
+  .main {
+    margin: 10px;
+    padding: 10px;
+    background: #fff;
+    font-size: 18px;
+
+    .items {
+      .item {
+        border: solid 1px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .sub {
+    margin: 10px;
+    background: #fff;
+    font-size: 14px;
+  }
 }
 </style>

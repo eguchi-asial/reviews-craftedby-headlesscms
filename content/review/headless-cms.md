@@ -58,3 +58,4 @@ Outriders体験版やってみました。面白いです。
 記事で共通のパーツはcomponentにして再利用することで記事の書きっぷりが統一されます。
 
 <references :links="links"></references>
+	

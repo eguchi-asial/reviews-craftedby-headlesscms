@@ -19,6 +19,15 @@ html {
 
 body {
   overflow: hidden;
+  background: #fff;
+  background: #ecf0f1;
+  height: 100vh;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 *,
