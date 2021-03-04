@@ -1,12 +1,20 @@
 ---
 id: 'headless-cms'
-category: ['TECH','Vue','Nuxt','nuxt/content','HeadlessCMS']
+category:
+  - TECH
+  - Vue
+  - Nuxt
+  - nuxt/content
+  - HeadlessCMS
 title: 'HeadlessCMSを触ってみた'
 description: 'まさにこのレビューサイトがHeadlessCMSでできています。触ってみた感想と、CMSとの違いについて触れてます。'
 yyyymmdd: '2021-02-28'
+links:
+  - https://content.nuxtjs.org/ja
+  - https://ja.nuxtjs.org/
 ---
 
-<tags :tags="['TECH','Vue','Nuxt','nuxt/content','HeadlessCMS']"></tags>
+<tags :tags="category"></tags>
 
 HeadlessCMSを使って、趣味や技術について綴っていこうと思います。
 
@@ -27,21 +35,26 @@ mdファイルの中にvueコンポーネントが書けるので、コンポー
 ```md SAMPLE
 ---
 id: 'Outriders'
-category: ['GAME','STEAM','無料']
+category:
+  - GAME
+  - STEAM
+  - 無料
 title: 'Outriders体験版をやってみた'
 description: '2/26にスクエニさんからOutriders体験版がリリースされましたので、やってみた感想です。'
 yyyymmdd: '2021-02-28'
+links:
+  - https://www.jp.square-enix.com/outriders/
+  - https://www.jp.square-enix.com/outriders/demo/
 ---
 
-<tags :tags="['GAME','STEAM','無料']"></tags>
+<tags :tags="category"></tags>
 
 Outriders体験版やってみました。面白いです。
 
-<references :links="['https://www.jp.square-enix.com/outriders/', 'https://www.jp.square-enix.com/outriders/demo/']"></references>
-
+<references :links="links"></references>
 ```
 
 こんな感じで、mdの中にtagsやreferencesのようにvueコンポーネントを使って記事を組み立てることができます。
 記事で共通のパーツはcomponentにして再利用することで記事の書きっぷりが統一されます。
 
-<references :links="['https://content.nuxtjs.org/ja', 'https://ja.nuxtjs.org/']"></references>
+<references :links="links"></references>
