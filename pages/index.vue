@@ -105,7 +105,7 @@ export default Vue.extend({
   .contents {
     // HEADER高さ
     margin-top: 60px;
-    display: block;
+    display: inline-block;
     height: calc(100vh - 60px);
 
     .sub {

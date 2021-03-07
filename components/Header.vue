@@ -5,8 +5,9 @@
       <span class="logo-wrapper">
         <nuxt-link to="/">
           <img
-            class="logo"
+            v-show="!hasTitle"
             :class="{ 'no-title': !hasTitle }"
+            class="logo"
             src="/logo_header.png" />
         </nuxt-link>
       </span>
