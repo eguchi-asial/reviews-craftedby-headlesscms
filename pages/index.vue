@@ -4,7 +4,7 @@
     <div class="contents">
       <div class="main">
         <Logo />
-        <h2>新着レビュー({{ latest10Contents.length }})</h2>
+        <h2 class="latest-reviews-title">新着レビュー({{ latest10Contents.length }})</h2>
         <ul class="items">
           <li
             class="item"
@@ -17,6 +17,7 @@
               <div class="right">
                 <div class="title">{{ content.title }} {{ content.yyyymmdd }}</div>
                 <div class="description">{{ content.description }}</div>
+                <Tags class="category" :tags="content.category" />
               </div>
             </nuxt-link>
           </li>
@@ -77,6 +78,8 @@ export default Vue.extend({
 })
 </script>
 <style lang="scss" scoped>
+$eyecatch-height: 120px;
+
 .contents {
   // HEADER高さ
   margin-top: 60px;
@@ -91,6 +94,10 @@ export default Vue.extend({
     font-size: 18px;
     overflow: scroll;
 
+    .latest-reviews-title {
+      margin: 10px 0;
+    }
+
     .items {
       .item {
         border: solid 1px;
@@ -103,7 +110,7 @@ export default Vue.extend({
 
           .eyecatch {
             padding: 10px;
-            width: 120px;
+            width: $eyecatch-height;
             height: auto;
           }
 
@@ -111,14 +118,24 @@ export default Vue.extend({
             display: flex;
             flex-direction: column;
             padding: 10px;
+            width: calc(100% - #{$eyecatch-height});
+            height: 100%;
 
             .title {
               font-weight: bold;
               font-size: 18px;
+              width: 100%;
+              height: auto;
             }
 
             .description {
               font-size: 16px;
+              width: 100%;
+              height: auto;
+            }
+
+            .category {
+              z-index: 199999;
             }
           }
         }

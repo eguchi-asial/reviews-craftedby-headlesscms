@@ -26,7 +26,7 @@ export default Vue.extend({
   justify-content: flex-start;
   align-items: center;
   min-height: fit-content;
-  width: 100vw;
+  width: 100%;
   padding: 10px 0;
   flex-wrap: wrap;
 
