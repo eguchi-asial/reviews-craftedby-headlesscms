@@ -59,10 +59,12 @@ export default Vue.extend({
       .sortBy('createdBy', 'desc')
       .limit(10)
       .fetch()
-    const categories: IContentDocument | IContentDocument[] = await $content('review')
+    let categories: IContentDocument | IContentDocument[] = await $content('review')
       .only(['category'])
       .fetch()
-    // @ts-ignore 抽出された全てのカテゴリー配列を1つにまとめた後、一位な配列に組み直してセットする
+    // 抽出された全てのカテゴリー配列を1つにまとめた後、一位な配列に組み直してセットする
+    // また、ts-lintでIContentDocumentなのかIContentDocument[]何かハッキリさせる必要があるため、配列に強制代入する
+    categories = Array.isArray(categories) ? categories : [categories]
     const uniqueCategories = Array.from(new Set(categories.map(category => category.category).flat()))
     return {
       latest10Contents,

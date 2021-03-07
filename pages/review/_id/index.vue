@@ -46,8 +46,9 @@ export default Vue.extend({
     }
   },
   async asyncData ({ $content, route, store }) {
-    const content: IContentDocument | IContentDocument[] = await $content(`review/${route.params.id}`).fetch()
-    // @ts-ignore
+    let content: IContentDocument | IContentDocument[] = await $content(`review/${route.params.id}`).fetch()
+    // ts-lintでIContentDocumentなのかIContentDocument[]何かハッキリさせる必要があるため、IContentDocument単体Objectに強制代入する
+    content = Array.isArray(content) ? content[0] : content
     store.commit('CHANGE_TITLE', content.title)
     return {
       content
