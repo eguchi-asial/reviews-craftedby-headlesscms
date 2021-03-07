@@ -31,6 +31,8 @@ export default Vue.extend({
   min-width: 65px;
   text-align: center;
   outline: none;
+  min-height: 35px;
+  max-height: 35px;
 
   &:active {
     background: #27ae60;
