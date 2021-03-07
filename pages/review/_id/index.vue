@@ -20,6 +20,32 @@ export default Vue.extend({
       content: { title: '' }
     }
   },
+  head() {
+    return {
+      // @ts-ignore
+      title: `${this.content.title}`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          // @ts-ignore
+          content: this.content.description
+        },
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          // @ts-ignore
+          content: this.content.category
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          // @ts-ignore
+          content: this.content.description
+        }
+      ]
+    }
+  },
   async asyncData ({ $content, route }) {
     const content: IContentDocument | IContentDocument[] = await $content(`review/${route.params.id}`).fetch()
     return {

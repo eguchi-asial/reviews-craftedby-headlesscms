@@ -1,14 +1,19 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'arekore',
+    titleTemplate: 'ARE KORE - %s',
     htmlAttrs: {
       lang: 'en',
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      { hid: 'description', name: 'description', content: 'ARE KOREは筆者があれこれ体験・検証した結果をレビューするHeadlessCMS制サイトです。' },
+      { hid: 'og:site_name', property: 'og:site_name', content: 'ARE KORE' },
+      { hid: 'og:type', property: 'og:type', content: 'website' },
+      // { hid: 'og:url', property: 'og:url', content: 'https://arekore.' },
+      { hid: 'og:title', property: 'og:title', content: 'ARE KORE' },
+      { hid: 'og:description', property: 'og:description', content: 'ARE KOREは筆者があれこれ体験・検証した結果をレビューするHeadlessCMS制サイトです。' }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
