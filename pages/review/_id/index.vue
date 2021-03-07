@@ -11,7 +11,6 @@
 <script lang="ts">
 import { IContentDocument } from '@nuxt/content/types/content'
 import Vue from 'vue'
-import { mapMutations } from 'vuex'
 
 export default Vue.extend({
   name: 'Review',
@@ -46,17 +45,13 @@ export default Vue.extend({
       ]
     }
   },
-  async asyncData ({ $content, route }) {
+  async asyncData ({ $content, route, store }) {
     const content: IContentDocument | IContentDocument[] = await $content(`review/${route.params.id}`).fetch()
+    // @ts-ignore
+    store.commit('CHANGE_TITLE', content.title)
     return {
       content
     }
-  },
-  mounted () {
-    this.CHANGE_TITLE(this.content.title)
-  },
-  methods: {
-    ...mapMutations(['CHANGE_TITLE'])
   }
 })
 </script>

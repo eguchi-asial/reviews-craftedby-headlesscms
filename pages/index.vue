@@ -36,7 +36,6 @@
 <script lang="ts">
 import { IContentDocument } from '@nuxt/content/types/content'
 import Vue from 'vue'
-import { mapMutations } from 'vuex'
 
 export default Vue.extend({
   name: 'Home',
@@ -53,7 +52,8 @@ export default Vue.extend({
       ]
     }
   },
-  async asyncData ({ $content }) {
+  async asyncData ({ $content, store }) {
+    store.commit('CHANGE_TITLE', '')
     const latest10Contents: IContentDocument | IContentDocument[] = await $content('review')
       .only(['id', 'category', 'title', 'description', 'eyecatch', 'yyyymmdd', 'path', 'createdAt'])
       .sortBy('createdBy', 'desc')
@@ -68,12 +68,6 @@ export default Vue.extend({
       latest10Contents,
       categories: uniqueCategories
     }
-  },
-  mounted () {
-    this.CHANGE_TITLE('')
-  },
-  methods: {
-    ...mapMutations(['CHANGE_TITLE'])
   }
 })
 </script>
