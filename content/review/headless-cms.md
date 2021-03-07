@@ -4,7 +4,7 @@ category:
   - TECH
   - Vue
   - Nuxt
-  - nuxt/content
+  - nuxt-content
   - HeadlessCMS
 title: 'HeadlessCMSを触ってみた'
 description: 'まさにこのレビューサイトがHeadlessCMSでできています。触ってみた感想と、CMSとの違いについて触れてます。'
