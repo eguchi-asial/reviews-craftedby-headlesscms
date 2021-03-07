@@ -1,18 +1,14 @@
 <template>
-  <div>
-    <img src="/logo.png" />
+  <div class="logo">
+    <img class="logo-image" src="/logo.png" />
   </div>
 </template>
 
-<style>
-.NuxtLogo {
-  animation: 1s appear;
-  margin: auto;
-}
-
-@keyframes appear {
-  0% {
-    opacity: 0;
+<style lang="scss" scoped>
+.logo {
+  .logo-image {
+    max-width: 360px;
+    height: auto;
   }
 }
 </style>

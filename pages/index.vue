@@ -5,28 +5,19 @@
       <div class="main">
         <Logo />
         <h2 class="latest-reviews-title">新着レビュー({{ latest10Contents.length }})</h2>
-        <ul class="items">
-          <li
-            class="item"
-            v-for="(content, index) in latest10Contents" :key="index">
-            <nuxt-link class="nuxt-link" :to="content.path">
-              <div class="left">
-                <img src="logo.png" class="eyecatch" v-if="content.eyecatch" />
-                <img src="noimage-gray.png" class="eyecatch" v-else />
-              </div>
-              <div class="right">
-                <div class="title">{{ content.title }} {{ content.yyyymmdd }}</div>
-                <div class="description">{{ content.description }}</div>
-                <Tags class="category" :tags="content.category" />
-              </div>
-            </nuxt-link>
-          </li>
-        </ul>
+        <Contents :contents="latest10Contents" />
       </div>
       <div class="sub">
         <h3>カテゴリー</h3>
-        <ul>
-          <li v-for="(category, index) in categories" :key="index">{{ category }}</li>
+        <ul class="category-list">
+          <li
+            v-for="(category, index) in categories"
+            :key="index"
+            class="category-list-item">
+            <nuxt-link :to="`/review/category/${category}`">
+              {{ category }}
+            </nuxt-link>
+          </li>
         </ul>
       </div>
     </div>
@@ -74,8 +65,6 @@ export default Vue.extend({
 })
 </script>
 <style lang="scss" scoped>
-$eyecatch-height: 120px;
-
 .contents {
   // HEADER高さ
   margin-top: 60px;
@@ -93,56 +82,35 @@ $eyecatch-height: 120px;
     .latest-reviews-title {
       margin: 10px 0;
     }
-
-    .items {
-      .item {
-        border: solid 1px;
-        margin-bottom: 10px;
-
-        .nuxt-link {
-          display: flex;
-          color: #000;
-          text-decoration: none;
-
-          .eyecatch {
-            padding: 10px;
-            width: $eyecatch-height;
-            height: auto;
-          }
-
-          .right {
-            display: flex;
-            flex-direction: column;
-            padding: 10px;
-            width: calc(100% - #{$eyecatch-height});
-            height: 100%;
-
-            .title {
-              font-weight: bold;
-              font-size: 18px;
-              width: 100%;
-              height: auto;
-            }
-
-            .description {
-              font-size: 16px;
-              width: 100%;
-              height: auto;
-            }
-
-            .category {
-              z-index: 199999;
-            }
-          }
-        }
-      }
-    }
   }
 
   .sub {
     margin: 10px;
     background: #fff;
     font-size: 14px;
+
+    h3 {
+      margin: 5px;
+    }
+
+    .category-list {
+      .category-list-item {
+        margin: 5px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .contents {
+    // HEADER高さ
+    margin-top: 60px;
+    display: block;
+    height: calc(100vh - 60px);
+
+    .sub {
+      display: none;
+    }
   }
 }
 </style>

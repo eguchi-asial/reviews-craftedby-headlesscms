@@ -3,10 +3,12 @@
     <slot name="left" />
     <div class="center">
       <span class="logo-wrapper">
-        <img
-          class="logo"
-          :class="{ 'no-title': !hasTitle }"
-          src="/logo_header.png" />
+        <nuxt-link to="/">
+          <img
+            class="logo"
+            :class="{ 'no-title': !hasTitle }"
+            src="/logo_header.png" />
+        </nuxt-link>
       </span>
       {{ currentTitle }}
     </div>
