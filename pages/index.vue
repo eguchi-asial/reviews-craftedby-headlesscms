@@ -47,7 +47,7 @@ export default Vue.extend({
     store.commit('CHANGE_TITLE', '')
     const latest10Contents: IContentDocument | IContentDocument[] = await $content('review')
       .only(['id', 'category', 'title', 'description', 'eyecatch', 'yyyymmdd', 'path', 'createdAt'])
-      .sortBy('createdBy', 'desc')
+      .sortBy('createdAt', 'desc')
       .limit(10)
       .fetch()
     let categories: IContentDocument | IContentDocument[] = await $content('review')
@@ -71,6 +71,8 @@ export default Vue.extend({
   display: grid;
   grid-template-columns: auto 20%;
   height: calc(100vh - 60px);
+  overflow: scroll;
+  width: 100%;
 
   .main {
     margin: 10px;
@@ -107,6 +109,8 @@ export default Vue.extend({
     margin-top: 60px;
     display: inline-block;
     height: calc(100vh - 60px);
+    overflow-y: scroll;
+    width: 100%;
 
     .sub {
       display: none;

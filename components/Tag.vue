@@ -28,7 +28,6 @@ export default Vue.extend({
   font-size: 14px;
   font-weight: bold;
   display: block;
-  min-width: 65px;
   text-align: center;
   outline: none;
   min-height: 35px;
