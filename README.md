@@ -44,3 +44,12 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 - mdの中にvueコンポーネントを書くときの注意点
   - https://content.nuxtjs.org/ja/writing#vue%E3%82%B3%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%8D%E3%83%B3%E3%83%88
   - セルフクローズは使えない。壊れるので、<hoge></hoge>のように書く
+
+## リリース
+
+ホスティングはfirebase hosting使ってる。
+
+```
+$npm run generate
+$firebase deploy
+```
