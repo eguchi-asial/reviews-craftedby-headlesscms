@@ -66,8 +66,7 @@ export default Vue.extend({
   width: 100vw;
   height: 100vh;
   // HEADER高さ
-  padding: 60px 10px 10px 10px;
+  padding: 60px 10px 100px 10px;
   overflow: scroll;
-  padding-bottom: calc(80px + env(safe-area-inset-bottom));
 }
 </style>

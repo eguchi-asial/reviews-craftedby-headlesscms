@@ -42,7 +42,7 @@ $eyecatch-height: 120px;
   height: calc(100vh - 60px);
   overflow-y: scroll;
   width: 100%;
-  padding-bottom: calc(80px + env(safe-area-inset-bottom));
+  padding-bottom: 100px;
 
   .main {
     margin: 10px;
