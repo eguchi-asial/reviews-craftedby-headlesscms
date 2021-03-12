@@ -22,7 +22,7 @@ export default Vue.extend({
     // 選択されたカテゴリーを含む記事一覧を取得する
     const contents: IContentDocument | IContentDocument[] = await $content('review')
       .where({ 'category': { $contains: [selectedCategory] } })
-      .only(['id', 'category', 'title', 'description', 'eyecatch', 'yyyymmdd', 'path', 'createdAt'])
+      .only(['id', 'category', 'title', 'description', 'rating', 'eyecatch', 'yyyymmdd', 'path', 'createdAt'])
       .sortBy('createdBy', 'desc')
       .fetch()
     return {
@@ -40,6 +40,7 @@ $eyecatch-height: 120px;
   margin-top: 60px;
   display: inline-block;
   height: calc(100vh - 60px);
+  overflow-y: scroll;
 
   .main {
     margin: 10px;
