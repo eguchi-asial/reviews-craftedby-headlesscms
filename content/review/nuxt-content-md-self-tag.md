@@ -16,6 +16,8 @@ links:
   - https://ja.nuxtjs.org/
 ---
 
+<br>
+
 <tags :tags="category" :no-link="true"></tags>
 
 <rating :rating="rating"></rating>

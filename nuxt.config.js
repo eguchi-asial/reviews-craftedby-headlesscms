@@ -7,7 +7,7 @@ export default {
     },
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
       { hid: 'description', name: 'description', content: 'ARE KOREは筆者があれこれ体験・検証した結果をレビューするHeadlessCMS制サイトです。' },
       { hid: 'og:site_name', property: 'og:site_name', content: 'ARE KORE' },
       { hid: 'og:type', property: 'og:type', content: 'website' },
