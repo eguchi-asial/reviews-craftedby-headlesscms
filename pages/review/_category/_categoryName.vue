@@ -41,6 +41,7 @@ $eyecatch-height: 120px;
   display: inline-block;
   height: calc(100vh - 60px);
   overflow-y: scroll;
+  width: 100%;
 
   .main {
     margin: 10px;
