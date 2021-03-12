@@ -6,6 +6,7 @@ category:
   - SEO
 title: 'GoogleAMPでハマった'
 description: 'AMPで「AMPStateは動的な状態管理には使わない(使えない)」って話です。'
+rating: 2
 yyyymmdd: '2021-03-11'
 links:
   - https://developers.google.com/amp?hl=ja
@@ -14,7 +15,9 @@ links:
   - https://amp.dev/ja/about/how-amp-works/?referrer=ampproject.org
 ---
 
-<tags :tags="category"></tags>
+<tags :tags="category" :no-link="true"></tags>
+
+<rating :rating="rating"></rating>
 
 GoogleAMPを扱う機会があり、想像以上に苦戦したので綴ります。
 

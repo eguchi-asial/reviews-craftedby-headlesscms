@@ -1,5 +1,5 @@
 <template>
-  <button class="tag">
+  <button :class="{'no-link': noLink}" class="tag" @click.prevent="$emit('click-tag', tag)">
     {{ tag }}
   </button>
 </template>
@@ -13,6 +13,10 @@ export default Vue.extend({
     tag: {
       type: String,
       required: true
+    },
+    noLink: {
+      type: Boolean,
+      default: () => false
     }
   }
 })
@@ -32,6 +36,10 @@ export default Vue.extend({
   outline: none;
   min-height: 35px;
   max-height: 35px;
+
+  &.no-link {
+    pointer-events: none;
+  }
 
   &:active {
     background: #27ae60;

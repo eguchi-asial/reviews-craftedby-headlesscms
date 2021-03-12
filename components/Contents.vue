@@ -3,7 +3,7 @@
     <li
       class="item"
       v-for="(content, index) in contents" :key="index">
-      <Content :content="content" />
+      <Content :content="content" @click-tag="(tag) => $emit('click-tag', tag)"/>
     </li>
   </ul>
 </template>

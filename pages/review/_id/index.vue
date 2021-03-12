@@ -4,7 +4,7 @@
       <div class="left" slot="left"><nuxt-link to="/">戻る</nuxt-link></div>
     </Header>
     <div class="contents">
-      <nuxt-content :document="content" />
+      <nuxt-content :document="content" @click-tag="onClickTag" />
     </div>
   </div>
 </template>
@@ -52,6 +52,11 @@ export default Vue.extend({
     store.commit('CHANGE_TITLE', content.title)
     return {
       content
+    }
+  },
+  methods: {
+    onClickTag (tag: string) {
+      location.href = `/review/category/${tag}`
     }
   }
 })

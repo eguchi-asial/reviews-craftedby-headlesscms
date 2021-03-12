@@ -8,13 +8,16 @@ category:
   - HeadlessCMS
 title: 'HeadlessCMSを触ってみた'
 description: 'まさにこのレビューサイトがHeadlessCMSでできています。触ってみた感想と、CMSとの違いについて触れてます。'
+rating: 5
 yyyymmdd: '2021-02-28'
 links:
   - https://content.nuxtjs.org/ja
   - https://ja.nuxtjs.org/
 ---
 
-<tags :tags="category"></tags>
+<tags :tags="category" :no-link="true"></tags>
+
+<rating :rating="rating"></rating>
 
 HeadlessCMSを使って、趣味や技術について綴っていこうと思います。
 

@@ -5,7 +5,7 @@
       <div class="main">
         <Logo />
         <h2 class="latest-reviews-title">新着レビュー({{ latest10Contents.length }})</h2>
-        <Contents :contents="latest10Contents" />
+        <Contents :contents="latest10Contents" @click-tag="onClickTag" />
       </div>
       <div class="sub">
         <h3>カテゴリー</h3>
@@ -46,7 +46,7 @@ export default Vue.extend({
   async asyncData ({ $content, store }) {
     store.commit('CHANGE_TITLE', '')
     const latest10Contents: IContentDocument | IContentDocument[] = await $content('review')
-      .only(['id', 'category', 'title', 'description', 'eyecatch', 'yyyymmdd', 'path', 'createdAt'])
+      .only(['id', 'category', 'title', 'description', 'rating', 'eyecatch', 'yyyymmdd', 'path', 'createdAt'])
       .sortBy('createdAt', 'desc')
       .limit(10)
       .fetch()
@@ -60,6 +60,11 @@ export default Vue.extend({
     return {
       latest10Contents,
       categories: uniqueCategories
+    }
+  },
+  methods: {
+    onClickTag (tag: string) {
+      location.href = `/review/category/${tag}`
     }
   }
 })
@@ -98,6 +103,12 @@ export default Vue.extend({
     .category-list {
       .category-list-item {
         margin: 5px;
+
+        a {
+          color: #000;
+          text-decoration: none;
+          font-size: 18px;
+        }
       }
     }
   }

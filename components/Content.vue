@@ -7,7 +7,8 @@
     <div class="right">
       <div class="title">{{ content.title }} {{ content.yyyymmdd }}</div>
       <div class="description">{{ content.description }}</div>
-      <Tags class="category" :tags="content.category" />
+      <Rating :rating="content.rating" />
+      <Tags class="category" :tags="content.category" @click-tag="(tag) => $emit('click-tag', tag)"/>
     </div>
   </nuxt-link>
 </template>
