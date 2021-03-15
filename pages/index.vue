@@ -78,7 +78,6 @@ export default Vue.extend({
   height: calc(100vh - 60px);
   overflow: scroll;
   width: 100%;
-  padding-bottom: 100px;
 
   .main {
     margin: 10px;
@@ -123,6 +122,7 @@ export default Vue.extend({
     height: calc(100vh - 60px);
     overflow-y: scroll;
     width: 100%;
+    padding-bottom: 100px;
 
     .sub {
       display: none;
