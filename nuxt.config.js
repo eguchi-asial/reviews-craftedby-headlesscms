@@ -41,6 +41,8 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
+    // https://sitemap.nuxtjs.org/
+    '@nuxtjs/sitemap'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -51,4 +53,24 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  sitemap: {
+    hostname: 'https://arekore.web.app/',
+    routes: async () => {
+      const { $content } = require('@nuxt/content')
+      const pathsObjArray = await $content('review')
+        .only(['path'])
+        .fetch()
+      const paths = pathsObjArray.map((p) => p.path)
+      console.log('@@ paths url @@', paths)
+      // カテゴリー別ページ生成
+      let categoriesObjArray = await $content('review')
+        .only(['category'])
+        .fetch()
+      categoriesObjArray = Array.isArray(categoriesObjArray) ? categoriesObjArray : [categoriesObjArray]
+      const uniqueCategories = Array.from(new Set(categoriesObjArray.map(category => category.category).flat())).map(category => `/review/category/${category}`)
+      console.log('@@ categories url @@', uniqueCategories)
+      return [ ...paths, ...uniqueCategories, '/']
+    }
+  }
 }
