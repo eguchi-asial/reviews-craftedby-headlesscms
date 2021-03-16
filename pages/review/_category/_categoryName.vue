@@ -23,7 +23,7 @@ export default Vue.extend({
     const contents: IContentDocument | IContentDocument[] = await $content('review')
       .where({ 'category': { $contains: [selectedCategory] } })
       .only(['id', 'category', 'title', 'description', 'rating', 'eyecatch', 'yyyymmdd', 'path', 'createdAt'])
-      .sortBy('createdBy', 'desc')
+      .sortBy('createdAt', 'desc')
       .fetch()
     return {
       category: route.params.categoryName,
