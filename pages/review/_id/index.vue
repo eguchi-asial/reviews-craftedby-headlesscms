@@ -68,5 +68,11 @@ export default Vue.extend({
   // HEADER高さ
   padding: 60px 10px 100px 10px;
   overflow: scroll;
+
+  .nuxt-content-container /deep/ {
+    background: #fff;
+    margin: 10px 5px;
+    padding: 10px;
+  }
 }
 </style>

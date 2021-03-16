@@ -93,7 +93,6 @@ export default Vue.extend({
 
   .sub {
     margin: 10px;
-    background: #fff;
     font-size: 14px;
 
     h3 {
@@ -101,13 +100,13 @@ export default Vue.extend({
     }
 
     .category-list {
+      background: #fff;
+
       .category-list-item {
         margin: 5px;
 
         a {
-          color: #000;
-          text-decoration: none;
-          font-size: 18px;
+          font-size: 20px;
         }
       }
     }
