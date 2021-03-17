@@ -17,6 +17,12 @@ import Vue from 'vue'
 
 export default Vue.extend({
   name: 'ReviewsByCategory',
+  head() {
+    return {
+      // @ts-ignore
+      title: `${this.category}`,
+    }
+  },
   async asyncData ({ $content, route }) {
     const selectedCategory = route.params.categoryName
     // 選択されたカテゴリーを含む記事一覧を取得する
