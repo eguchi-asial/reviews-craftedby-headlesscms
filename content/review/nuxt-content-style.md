@@ -19,7 +19,7 @@ links:
 
 # 何がやりたかったか
 
-マークダウンに記事を書いたら、以下のように `nuxt-content` コンポーネントのdocument属性に渡すことで、よしなにHTMLとして展開してくれます。
+執筆したマークダウン以下のように `nuxt-content` コンポーネントのdocument属性に渡すことで、よしなにHTMLとして展開してくれます。
 
 ```html SAMPLE
 <template>
@@ -42,7 +42,7 @@ links:
 $npm run dev
 ```
 
-上記で開発しながらlocalでstyleを当てていたのですが、最初は以下のようにstyleを書いてました。
+上記でlocal開発しながら以下のようなstyleを書いてました。
 
 
 ```css sass
@@ -53,7 +53,7 @@ $npm run dev
 }
 ```
 
-なぜなら、nuxt-contentで展開されたHTMLが以下のような構造になっていたためです。
+なぜなら、nuxt-contentで展開されたHTMLがnuxt-content-containerでラップする構造となっていたためです。
 
 ```html
 <div class="contents">
@@ -66,7 +66,7 @@ $npm run dev
 </div>
 ```
 
-開発時はこれでstyleが当たることも確認できたのですが、これをいざホスティングに以下のように本番deployしたところ、
+開発時はこれでstyleが当たることも確認できたのですが、いざ本番ホスティングにdeployしたところ、
 
 ```
 $npm run generate
@@ -77,15 +77,17 @@ $firebase deploy
 
 しかしlocalではstyleはちゃんと当たっている。
 
+不思議です。
+
 おもむろに
 
 ```
 $npm run generate && npm run start
 ```
 
-上記で本番相当のUIをlocalで確認したところ、styleが当たっていませんでした。
+上記で本番環境相当のソースコードでlocal確認したところ、styleが当たっていませんでした。
 
-startで展開されたHTMLを確認したところ、開発時のdevと異なり、以下のようなHTMLとなってました。
+展開されたHTMLを確認したところ、開発時のHTML構造とは異なっておりました。
 
 ```html
 <div class="contents">
@@ -95,7 +97,7 @@ startで展開されたHTMLを確認したところ、開発時のdevと異な�
 </div>
 ```
 
-「.nuxt-content-container」はdevで開発時しか展開されないんですね。
+「.nuxt-content-container」はdevで開発buildした時しか展開されないんですね。
 
 原因はこれでした。generateした際、つまり本番むけのHTMLには「.nuxt-content」だけになってます。
 そのためstyleが当たっていませんでした。
