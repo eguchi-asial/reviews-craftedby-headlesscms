@@ -1,7 +1,7 @@
 <template>
   <nuxt-link class="nuxt-link" :to="content.path">
     <div class="left">
-      <img src="/logo.png" class="eyecatch" v-if="content.eyecatch" />
+      <img :src="`/${content.eyecatch}`" class="eyecatch" v-if="content.eyecatch" />
       <img src="/noimage-gray.png" class="eyecatch" v-else />
     </div>
     <div class="right">

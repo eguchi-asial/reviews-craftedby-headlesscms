@@ -7,6 +7,7 @@ category:
   - css
 title: 'nuxt/contentで展開されるcontentsにstyleを当てたい話'
 description: 'マークダウンcontentsは<nuxt-content>でHTML展開されますが、展開されたHTMLにちょっと仕様があったのでstyleを当てるのに一工夫しました。'
+eyecatch: 'nuxt-content-style.png'
 rating: 5
 yyyymmdd: '2021-03-16'
 links:

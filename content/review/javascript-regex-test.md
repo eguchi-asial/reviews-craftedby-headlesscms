@@ -6,6 +6,7 @@ category:
   - 正規表現
 title: '正規表現ってやっぱ便利だわ'
 description: '正規表現を使えば手軽に文字列includesテストできるよねって軽い話です。'
+eyecatch: 'javascript-regex-test.png'
 rating: 5
 yyyymmdd: '2021-03-19'
 links:
