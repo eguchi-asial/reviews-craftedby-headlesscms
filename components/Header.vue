@@ -69,10 +69,12 @@ export default Vue.extend({
 
   .center {
     font-weight: bold;
-    font-size: 18px;
+    font-size: 16px;
     display: flex;
     align-content: center;
     justify-content: center;
+    word-break: break-all;
+    max-width: 80%;
 
     .logo-wrapper {
       .logo {
