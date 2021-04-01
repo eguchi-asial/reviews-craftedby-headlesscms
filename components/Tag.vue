@@ -1,5 +1,9 @@
 <template>
-  <button :class="{'no-link': noLink}" class="tag" @click.prevent="$emit('click-tag', tag)">
+  <button
+    :class="{ 'no-link': noLink }"
+    class="tag"
+    @click.prevent="$emit('click-tag', tag)"
+  >
     {{ tag }}
   </button>
 </template>
@@ -12,15 +16,14 @@ export default Vue.extend({
   props: {
     tag: {
       type: String,
-      required: true
+      required: true,
     },
     noLink: {
       type: Boolean,
-      default: () => false
-    }
-  }
+      default: () => false,
+    },
+  },
 })
-
 </script>
 <style lang="scss" scoped>
 .tag {

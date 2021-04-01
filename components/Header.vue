@@ -8,7 +8,8 @@
             v-show="!hasTitle"
             :class="{ 'no-title': !hasTitle }"
             class="logo"
-            src="/logo_header.png" />
+            src="/logo_header.png"
+          />
         </nuxt-link>
       </span>
       {{ currentTitle }}
@@ -25,12 +26,11 @@ export default Vue.extend({
   name: 'Header',
   computed: {
     ...mapGetters(['currentTitle']),
-    hasTitle () {
+    hasTitle() {
       return this.currentTitle.length > 0
-    }
-  }
+    },
+  },
 })
-
 </script>
 <style lang="scss" scoped>
 .header {

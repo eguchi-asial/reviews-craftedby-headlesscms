@@ -3,7 +3,8 @@
     <div
       v-for="star in Array.from({ length: rating })"
       :key="star"
-      class="star">
+      class="star"
+    >
       ★
     </div>
   </div>
@@ -17,11 +18,10 @@ export default Vue.extend({
   props: {
     rating: {
       type: Number,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 })
-
 </script>
 <style lang="scss" scoped>
 .rating {

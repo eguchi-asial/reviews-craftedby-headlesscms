@@ -1,9 +1,10 @@
 <template>
   <ul class="items">
-    <li
-      class="item"
-      v-for="(content, index) in contents" :key="index">
-      <Content :content="content" @click-tag="(tag) => $emit('click-tag', tag)"/>
+    <li v-for="(content, index) in contents" :key="index" class="item">
+      <Content
+        :content="content"
+        @click-tag="(tag) => $emit('click-tag', tag)"
+      />
     </li>
   </ul>
 </template>
@@ -13,8 +14,12 @@ import Vue from 'vue'
 export default Vue.extend({
   name: 'Contents',
   props: {
-    contents: Array
-  }
+    contents: {
+      type: Array,
+      required: true,
+      default: () => [],
+    },
+  },
 })
 </script>
 <style lang="scss" scoped>

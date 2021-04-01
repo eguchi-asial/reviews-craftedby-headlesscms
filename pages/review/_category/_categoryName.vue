@@ -4,7 +4,9 @@
     <div class="contents">
       <div class="main">
         <Logo />
-        <h2 class="latest-reviews-title">{{ `”${category}”記事` }}{{ `(${contents.length})` }}</h2>
+        <h2 class="latest-reviews-title">
+          {{ `”${category}”記事` }}{{ `(${contents.length})` }}
+        </h2>
         <Contents :contents="contents" />
       </div>
     </div>
@@ -17,25 +19,37 @@ import Vue from 'vue'
 
 export default Vue.extend({
   name: 'ReviewsByCategory',
+  async asyncData({ $content, route }) {
+    const selectedCategory = route.params.categoryName
+    // 選択されたカテゴリーを含む記事一覧を取得する
+    const contents: IContentDocument | IContentDocument[] = await $content(
+      'review'
+    )
+      .where({ category: { $contains: [selectedCategory] } })
+      .only([
+        'id',
+        'category',
+        'title',
+        'description',
+        'rating',
+        'eyecatch',
+        'yyyymmdd',
+        'path',
+        'createdAt',
+      ])
+      .sortBy('createdAt', 'desc')
+      .fetch()
+    return {
+      category: route.params.categoryName,
+      contents,
+    }
+  },
   head() {
     return {
       // @ts-ignore
       title: `${this.category}`,
     }
   },
-  async asyncData ({ $content, route }) {
-    const selectedCategory = route.params.categoryName
-    // 選択されたカテゴリーを含む記事一覧を取得する
-    const contents: IContentDocument | IContentDocument[] = await $content('review')
-      .where({ 'category': { $contains: [selectedCategory] } })
-      .only(['id', 'category', 'title', 'description', 'rating', 'eyecatch', 'yyyymmdd', 'path', 'createdAt'])
-      .sortBy('createdAt', 'desc')
-      .fetch()
-    return {
-      category: route.params.categoryName,
-      contents
-    }
-  }
 })
 </script>
 <style lang="scss" scoped>

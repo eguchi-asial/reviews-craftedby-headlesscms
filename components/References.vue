@@ -2,7 +2,11 @@
   <div class="references">
     <h2 class="title">参考リンク</h2>
     <ul class="reference-list">
-      <li class="reference-list-item" v-for="(link, index) in links" :key="index">
+      <li
+        v-for="(link, index) in links"
+        :key="index"
+        class="reference-list-item"
+      >
         <Reference :link="link" />
       </li>
     </ul>
@@ -15,13 +19,12 @@ import Vue from 'vue'
 export default Vue.extend({
   name: 'References',
   props: {
-  links: {
+    links: {
       type: Array,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 })
-
 </script>
 <style lang="scss" scoped>
 .references {

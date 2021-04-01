@@ -12,11 +12,10 @@ export default Vue.extend({
   props: {
     link: {
       type: String,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 })
-
 </script>
 <style lang="scss" scoped>
 .reference {

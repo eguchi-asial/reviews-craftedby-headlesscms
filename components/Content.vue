@@ -1,14 +1,22 @@
 <template>
   <nuxt-link class="nuxt-link" :to="content.path">
     <div class="left">
-      <img :src="`/${content.eyecatch}`" class="eyecatch" v-if="content.eyecatch" />
-      <img src="/noimage-gray.png" class="eyecatch" v-else />
+      <img
+        v-if="content.eyecatch"
+        :src="`/${content.eyecatch}`"
+        class="eyecatch"
+      />
+      <img v-else src="/noimage-gray.png" class="eyecatch" />
     </div>
     <div class="right">
       <div class="title">{{ content.title }} {{ content.yyyymmdd }}</div>
       <div class="description">{{ content.description }}</div>
       <Rating :rating="content.rating" />
-      <Tags class="category" :tags="content.category" @click-tag="(tag) => $emit('click-tag', tag)"/>
+      <Tags
+        :tags="content.category"
+        class="category"
+        @click-tag="(tag) => $emit('click-tag', tag)"
+      />
     </div>
   </nuxt-link>
 </template>
@@ -18,8 +26,12 @@ import Vue from 'vue'
 export default Vue.extend({
   name: 'Content',
   props: {
-    content: {}
-  }
+    content: {
+      type: Object,
+      required: false,
+      default: () => {},
+    },
+  },
 })
 </script>
 <style lang="scss" scoped>

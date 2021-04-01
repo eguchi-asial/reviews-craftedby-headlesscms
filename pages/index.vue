@@ -4,7 +4,9 @@
     <div class="contents">
       <div class="main">
         <Logo />
-        <h2 class="latest-reviews-title">新着レビュー({{ latest10Contents.length }})</h2>
+        <h2 class="latest-reviews-title">
+          新着レビュー({{ latest10Contents.length }})
+        </h2>
         <Contents :contents="latest10Contents" @click-tag="onClickTag" />
       </div>
       <div class="sub">
@@ -13,7 +15,8 @@
           <li
             v-for="(category, index) in categories"
             :key="index"
-            class="category-list-item">
+            class="category-list-item"
+          >
             <nuxt-link :to="`/review/category/${category}`">
               {{ category }}
             </nuxt-link>
@@ -30,7 +33,42 @@ import Vue from 'vue'
 
 export default Vue.extend({
   name: 'Home',
-  head () {
+  async asyncData({ $content, store }) {
+    store.commit('CHANGE_TITLE', '')
+    const latest10Contents:
+      | IContentDocument
+      | IContentDocument[] = await $content('review')
+      .only([
+        'id',
+        'category',
+        'title',
+        'description',
+        'rating',
+        'eyecatch',
+        'yyyymmdd',
+        'path',
+        'createdAt',
+      ])
+      .sortBy('createdAt', 'desc')
+      .limit(10)
+      .fetch()
+    let categories: IContentDocument | IContentDocument[] = await $content(
+      'review'
+    )
+      .only(['category'])
+      .fetch()
+    // 抽出された全てのカテゴリー配列を1つにまとめた後、一位な配列に組み直してセットする
+    // また、ts-lintでIContentDocumentなのかIContentDocument[]何かハッキリさせる必要があるため、配列に強制代入する
+    categories = Array.isArray(categories) ? categories : [categories]
+    const uniqueCategories = Array.from(
+      new Set(categories.map((category) => category.category).flat())
+    )
+    return {
+      latest10Contents,
+      categories: uniqueCategories,
+    }
+  },
+  head() {
     return {
       title: 'ホーム',
       meta: [
@@ -38,35 +76,16 @@ export default Vue.extend({
           hid: 'keywords',
           name: 'keywords',
           // @ts-ignore
-          content: this.categories.join(',')
-        }
-      ]
-    }
-  },
-  async asyncData ({ $content, store }) {
-    store.commit('CHANGE_TITLE', '')
-    const latest10Contents: IContentDocument | IContentDocument[] = await $content('review')
-      .only(['id', 'category', 'title', 'description', 'rating', 'eyecatch', 'yyyymmdd', 'path', 'createdAt'])
-      .sortBy('createdAt', 'desc')
-      .limit(10)
-      .fetch()
-    let categories: IContentDocument | IContentDocument[] = await $content('review')
-      .only(['category'])
-      .fetch()
-    // 抽出された全てのカテゴリー配列を1つにまとめた後、一位な配列に組み直してセットする
-    // また、ts-lintでIContentDocumentなのかIContentDocument[]何かハッキリさせる必要があるため、配列に強制代入する
-    categories = Array.isArray(categories) ? categories : [categories]
-    const uniqueCategories = Array.from(new Set(categories.map(category => category.category).flat()))
-    return {
-      latest10Contents,
-      categories: uniqueCategories
+          content: this.categories.join(','),
+        },
+      ],
     }
   },
   methods: {
-    onClickTag (tag: string) {
+    onClickTag(tag: string) {
       location.href = `/review/category/${tag}`
-    }
-  }
+    },
+  },
 })
 </script>
 <style lang="scss" scoped>
