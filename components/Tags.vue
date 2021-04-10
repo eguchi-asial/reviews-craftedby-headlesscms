@@ -3,7 +3,6 @@
     <span v-for="(tag, index) in tags" :key="index" class="tag">
       <Tag
         :tag="tag"
-        :no-link="noLink"
         @click-tag="(tag) => $emit('click-tag', tag)"
       />
     </span>
@@ -19,10 +18,6 @@ export default Vue.extend({
     tags: {
       type: Array,
       default: () => ['tag'],
-    },
-    noLink: {
-      type: Boolean,
-      default: () => false,
     },
   },
 })

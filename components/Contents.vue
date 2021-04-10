@@ -1,10 +1,7 @@
 <template>
   <ul class="items">
     <li v-for="(content, index) in contents" :key="index" class="item">
-      <Content
-        :content="content"
-        @click-tag="(tag) => $emit('click-tag', tag)"
-      />
+      <Content :content="content" />
     </li>
   </ul>
 </template>
