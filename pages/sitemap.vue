@@ -45,9 +45,11 @@ export default Vue.extend({
   name: 'Sitemap',
   async asyncData({ $content, store }) {
     store.commit('CHANGE_TITLE', 'サイトマップ')
-    const paths = await $content('review').only(['path', 'id', 'title']).fetch()
+    const paths = await $content('review', { deep: true })
+      .only(['path', 'id', 'title'])
+      .fetch()
     // カテゴリー別ページ生成
-    let categories = await $content('review')
+    let categories = await $content('review', { deep: true })
       .only(['category', 'id', 'title'])
       .fetch()
     categories = Array.isArray(categories) ? categories : [categories]

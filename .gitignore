@@ -92,3 +92,5 @@ sw.*
 .firebase
 
 .env
+
+content/review/private

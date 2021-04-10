@@ -37,7 +37,7 @@ export default Vue.extend({
     store.commit('CHANGE_TITLE', '')
     const latest10Contents:
       | IContentDocument
-      | IContentDocument[] = await $content('review')
+      | IContentDocument[] = await $content('review', { deep: true })
       .only([
         'id',
         'category',
@@ -52,9 +52,9 @@ export default Vue.extend({
       .sortBy('createdAt', 'desc')
       .limit(10)
       .fetch()
-    let categories: IContentDocument | IContentDocument[] = await $content(
-      'review'
-    )
+    let categories:
+      | IContentDocument
+      | IContentDocument[] = await $content('review', { deep: true })
       .only(['category'])
       .fetch()
     // 抽出された全てのカテゴリー配列を1つにまとめた後、一位な配列に組み直してセットする

@@ -35,6 +35,11 @@ $ npm run generate
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
 
+# private記事について
+
+revision管理に入れたくないprivate記事はxontent/privateディレクトリを作成し、その中に.md記事を作ることで実現できます。
+恥ずかしい記事はGithubに残したくないですよね！
+
 ## tips
 
 - mdのpathについて

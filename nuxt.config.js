@@ -95,10 +95,12 @@ export default {
     hostname: 'https://arekore.web.app/',
     routes: async () => {
       const { $content } = require('@nuxt/content')
-      const pathsObjArray = await $content('review').only(['path']).fetch()
+      const pathsObjArray = await $content('review', { deep: true })
+        .only(['path'])
+        .fetch()
       const paths = pathsObjArray.map((p) => p.path)
       // カテゴリー別ページ生成
-      let categoriesObjArray = await $content('review')
+      let categoriesObjArray = await $content('review', { deep: true })
         .only(['category'])
         .fetch()
       categoriesObjArray = Array.isArray(categoriesObjArray)

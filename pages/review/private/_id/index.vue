@@ -1,5 +1,10 @@
 <template>
   <div class="container">
+    <agreement-dialog
+      v-if="!isAnswered"
+      mainMessage="18才以上ですか？"
+      @positive="isAnswered = true"
+      @negative="$router.go(-1)" />
     <Header>
       <div slot="left" class="left"><nuxt-link to="/">戻る</nuxt-link></div>
     </Header>
@@ -12,6 +17,9 @@
 import { IContentDocument } from '@nuxt/content/types/content'
 import Vue from 'vue'
 
+/**
+ * 18+コンテンツなので必ず同意をとってから表示する
+ */
 export default Vue.extend({
   name: 'Review',
   async asyncData({ $content, route, store }) {
@@ -28,6 +36,7 @@ export default Vue.extend({
   data() {
     return {
       content: { title: '' },
+      isAnswered: false
     }
   },
   head() {
