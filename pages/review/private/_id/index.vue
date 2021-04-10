@@ -2,9 +2,10 @@
   <div class="container">
     <agreement-dialog
       v-if="!isAnswered"
-      mainMessage="18才以上ですか？"
+      main-message="18才以上ですか？"
       @positive="isAnswered = true"
-      @negative="$router.go(-1)" />
+      @negative="$router.go(-1)"
+    />
     <Header>
       <div slot="left" class="left"><nuxt-link to="/">戻る</nuxt-link></div>
     </Header>
@@ -36,7 +37,7 @@ export default Vue.extend({
   data() {
     return {
       content: { title: '' },
-      isAnswered: false
+      isAnswered: false,
     }
   },
   head() {

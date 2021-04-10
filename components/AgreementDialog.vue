@@ -3,8 +3,12 @@
     <div class="wrapper">
       <div class="message">{{ mainMessage }}</div>
       <div class="action">
-        <span class="button positive" @click="$emit('positive')">{{ positiveActionMessage }}</span>
-        <span class="button negative" @click="$emit('negative')">{{ negativeActionMessage }}</span>
+        <span class="button positive" @click="$emit('positive')">{{
+          positiveActionMessage
+        }}</span>
+        <span class="button negative" @click="$emit('negative')">{{
+          negativeActionMessage
+        }}</span>
       </div>
     </div>
   </div>
@@ -17,18 +21,18 @@ export default Vue.extend({
   props: {
     mainMessage: {
       type: String,
-      required: true
+      required: true,
     },
     positiveActionMessage: {
       type: String,
       required: false,
-      default: () => 'YES'
+      default: () => 'YES',
     },
     negativeActionMessage: {
       type: String,
       required: false,
-      default: () => 'NO'
-    }
+      default: () => 'NO',
+    },
   },
 })
 </script>
