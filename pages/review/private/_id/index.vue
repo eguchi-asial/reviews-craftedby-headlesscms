@@ -9,7 +9,7 @@
     <Header>
       <div slot="left" class="left"><nuxt-link to="/">戻る</nuxt-link></div>
     </Header>
-    <div class="contents">
+    <div :class="{ mosaic: !isAnswered }" class="contents">
       <nuxt-content :document="content" />
     </div>
   </div>
@@ -75,6 +75,10 @@ export default Vue.extend({
   // HEADER高さ
   padding: 60px 10px 100px 10px;
   overflow: scroll;
+
+  &.mosaic {
+    filter: blur(6px);
+  }
 
   div:first-child {
     background: #fff;

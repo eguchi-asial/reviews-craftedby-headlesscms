@@ -47,7 +47,7 @@ export default Vue.extend({
   justify-content: center;
   align-items: center;
   z-index: 9999;
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(0, 0, 0, 0.9);
 
   .wrapper {
     background: #fff;

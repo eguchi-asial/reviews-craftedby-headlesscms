@@ -89,6 +89,12 @@ export default Vue.extend({
 })
 </script>
 <style lang="scss" scoped>
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 .contents {
   // HEADER高さ
   margin-top: 60px;

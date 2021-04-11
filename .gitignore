@@ -94,3 +94,4 @@ sw.*
 .env
 
 content/review/private
+static/private

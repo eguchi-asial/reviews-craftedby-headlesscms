@@ -55,6 +55,12 @@ export default Vue.extend({
 <style lang="scss" scoped>
 $eyecatch-height: 120px;
 
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 .contents {
   // HEADER高さ
   margin-top: 60px;

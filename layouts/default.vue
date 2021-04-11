@@ -24,12 +24,6 @@ body {
   height: 100vh;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
 *,
 *::before,
 *::after {
