@@ -37,7 +37,7 @@ export default Vue.extend({
         'path',
         'createdAt',
       ])
-      .sortBy('createdAt', 'desc')
+      .sortBy('yyyymmdd', 'desc')
       .fetch()
     return {
       category: route.params.categoryName,

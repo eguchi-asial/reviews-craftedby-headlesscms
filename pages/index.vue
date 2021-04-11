@@ -49,7 +49,7 @@ export default Vue.extend({
         'path',
         'createdAt',
       ])
-      .sortBy('createdAt', 'desc')
+      .sortBy('yyyymmdd', 'desc')
       .limit(10)
       .fetch()
     let categories:
