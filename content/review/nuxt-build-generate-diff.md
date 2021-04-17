@@ -24,8 +24,8 @@ nuxt generateした際に@clickなどのeventが評価されない！って叫�
 
 ## 何にハマったか
 
-ことの発端は、local開発時にnpm run buildしたモジュールを、npm run startで確認していた際に、
-@clickで定義したeventが評価されない！って騒いでいたことから始まります。
+local開発時にnpm run buildしたモジュールを、npm run startで確認していた際に、
+「@clickで定義したeventが評価されない！」って騒いでいました。
 
 評価されないというか、distの中を見てもあって欲しいjsが存在しないんですよね。
 
@@ -43,7 +43,7 @@ export default {
 
 static = 静的ですね。
 
-そして、staticにしている場合は、 `generateした場合にdistに展開されます` 。
+そして、staticにしている場合は、 `nuxt generateしたらdistに展開されます` 。
 
 反対にSSRなら
 
@@ -54,10 +54,14 @@ export default {
 
 です。
 
-この場合は、 `buildした場合にdistに展開されます。`
+この場合は、 `nuxt buildしたらdistに展開されます`
 
 今回私がバカだったのは、targetがstaticなのに、buildしてもjsがdistに作られない！って騒いでいるだけの話でした。
 
 あほ。
+
+targetがstaticなら「nuxt generate」して、npm run startなりbuilt in serverで確認する。
+
+buildはSSR。targetもserverの時につかう。
 
 <references :links="links"></references>
