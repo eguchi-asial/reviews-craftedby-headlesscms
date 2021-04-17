@@ -7,7 +7,7 @@
         <h2 class="latest-reviews-title">
           新着レビュー({{ latest10Contents.length }})
         </h2>
-        <Contents :contents="latest10Contents" @click-tag="onClickTag" />
+        <Contents :contents="latest10Contents" />
       </div>
       <div class="sub">
         <h3>カテゴリー</h3>
@@ -80,11 +80,6 @@ export default Vue.extend({
         },
       ],
     }
-  },
-  methods: {
-    onClickTag(tag: string) {
-      location.href = `/review/category/${tag}`
-    },
   },
 })
 </script>

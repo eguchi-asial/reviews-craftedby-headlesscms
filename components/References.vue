@@ -28,7 +28,7 @@ export default Vue.extend({
 </script>
 <style lang="scss" scoped>
 .references {
-  width: calc(100vw - 20px);
+  width: 100%;
   padding: 10px 0;
   margin-top: 10px;
   border-top: 1px dashed;

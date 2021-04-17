@@ -21,5 +21,9 @@ export default Vue.extend({
 .reference {
   font-size: 14px;
   text-align: center;
+
+  a {
+    overflow-wrap: break-word;
+  }
 }
 </style>

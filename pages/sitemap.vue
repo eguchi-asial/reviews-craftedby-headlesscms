@@ -66,11 +66,6 @@ export default Vue.extend({
       title: 'サイトマップ',
     }
   },
-  methods: {
-    onClickTag(tag: string) {
-      location.href = `/review/category/${tag}`
-    },
-  },
 })
 </script>
 <style lang="scss" scoped>

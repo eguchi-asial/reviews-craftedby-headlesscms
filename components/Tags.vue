@@ -1,7 +1,7 @@
 <template>
   <div class="tags">
     <span v-for="(tag, index) in tags" :key="index" class="tag">
-      <Tag :tag="tag" @click-tag="(tag) => $emit('click-tag', tag)" />
+      <Tag :tag="tag" />
     </span>
   </div>
 </template>

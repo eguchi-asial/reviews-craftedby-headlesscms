@@ -52,6 +52,7 @@ export default Vue.extend({
   .wrapper {
     background: #fff;
     width: 50%;
+    min-width: fit-content;
     height: 50%;
     display: flex;
     flex-direction: column;
@@ -59,8 +60,9 @@ export default Vue.extend({
     align-items: center;
 
     .message {
-      font-size: 24px;
-      font-weight: bold;
+      font-size: 20px;
+      font-weight: 700;
+      padding: 5px;
     }
 
     .action {

@@ -1,5 +1,5 @@
 <template>
-  <button class="tag" @click.prevent="$emit('click-tag', tag)">
+  <button class="tag">
     {{ tag }}
   </button>
 </template>
