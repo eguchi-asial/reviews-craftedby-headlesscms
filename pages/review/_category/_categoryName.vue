@@ -22,9 +22,10 @@ export default Vue.extend({
   async asyncData({ $content, route }) {
     const selectedCategory = route.params.categoryName
     // 選択されたカテゴリーを含む記事一覧を取得する
-    const contents:
-      | IContentDocument
-      | IContentDocument[] = await $content('review', { deep: true })
+    const contents: IContentDocument | IContentDocument[] = await $content(
+      'review',
+      { deep: true }
+    )
       .where({ category: { $contains: [selectedCategory] } })
       .only([
         'id',

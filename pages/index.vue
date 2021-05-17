@@ -35,26 +35,26 @@ export default Vue.extend({
   name: 'Home',
   async asyncData({ $content, store }) {
     store.commit('CHANGE_TITLE', '')
-    const latest10Contents:
-      | IContentDocument
-      | IContentDocument[] = await $content('review', { deep: true })
-      .only([
-        'id',
-        'category',
-        'title',
-        'description',
-        'rating',
-        'eyecatch',
-        'yyyymmdd',
-        'path',
-        'createdAt',
-      ])
-      .sortBy('yyyymmdd', 'desc')
-      .limit(10)
-      .fetch()
-    let categories:
-      | IContentDocument
-      | IContentDocument[] = await $content('review', { deep: true })
+    const latest10Contents: IContentDocument | IContentDocument[] =
+      await $content('review', { deep: true })
+        .only([
+          'id',
+          'category',
+          'title',
+          'description',
+          'rating',
+          'eyecatch',
+          'yyyymmdd',
+          'path',
+          'createdAt',
+        ])
+        .sortBy('yyyymmdd', 'desc')
+        .limit(10)
+        .fetch()
+    let categories: IContentDocument | IContentDocument[] = await $content(
+      'review',
+      { deep: true }
+    )
       .only(['category'])
       .fetch()
     // 抽出された全てのカテゴリー配列を1つにまとめた後、一位な配列に組み直してセットする
